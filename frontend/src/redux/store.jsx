@@ -3,10 +3,13 @@ import authReducer from './authSlice';
 import resignationReducer from './resignationSlice';
 import exitInterviewReducer from './exitInterviewSlice';
 
-export const store = configureStore({
+
+const store = configureStore({
     reducer: {
         auth: authReducer,
         resignation: resignationReducer,
         exitInterview: exitInterviewReducer,
     },
 });
+
+export default store;
