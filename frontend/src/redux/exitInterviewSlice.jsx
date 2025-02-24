@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { submitExitInterviewService } from '../services/exitInterviewService';
 
-// Async thunk for submitting exit interview feedback
 export const submitExitInterview = createAsyncThunk('exitInterview/submit', async (feedback) => {
     const response = await submitExitInterviewService(feedback);
     return response.data;
 });
 
-// Slice for managing exit interview state
 const exitInterviewSlice = createSlice({
     name: 'exitInterview',
     initialState: {

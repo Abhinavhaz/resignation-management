@@ -13,17 +13,18 @@ const authSlice = createSlice({
         loading: false,
     },
     reducers: {},
-    extraReducers: {
-        [login.pending]: (state) => {
-            state.loading = true;
-        },
-        [login.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.user = action.payload;
-        },
-        [login.rejected]: (state) => {
-            state.loading = false;
-        },
+    extraReducers: (builder) => {
+        builder
+            .addCase(login.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(login.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload;
+            })
+            .addCase(login.rejected, (state) => {
+                state.loading = false;
+            });
     },
 });
 

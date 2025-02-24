@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { submitResignationService } from '../services/resignationService';
 
-// Async thunk for submitting resignation request
 export const submitResignation = createAsyncThunk('resignation/submit', async ({ lastWorkingDay, reason }) => {
     const response = await submitResignationService(lastWorkingDay, reason);
     return response.data;
 });
 
-// Slice for managing resignation state
 const resignationSlice = createSlice({
     name: 'resignation',
     initialState: {
